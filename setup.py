@@ -9,7 +9,6 @@ setup(
     author='Dominic Davis-Foster',
 	author_email="dominic@davis-foster.co.uk",
 	py_modules=["domdf_spreadsheet_tools"],
-	license="OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
 	url="https://github.com/domdfcoding/domdf_spreadsheet_tools",
 	description='Tools for creating and formatting spreadsheets with Python and OpenPyXL',
 	long_description=long_description,
