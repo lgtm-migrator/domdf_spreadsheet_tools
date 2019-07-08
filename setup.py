@@ -21,5 +21,6 @@ setup(
     ],
 	install_requires=[
 		"openpyxl >= 2.6.0",
+		"domdf_python_tools >= 0.1.5"
 	],
 )
