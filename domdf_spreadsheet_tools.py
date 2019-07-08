@@ -31,15 +31,40 @@ __version__ = "0.1.0"
 __email__ = "dominic@davis-foster.co.uk"
 
 
-def append_to_xlsx(csv_input_file, xlsx_output_file, sheet_title, seperator=",", overwrite=False, use_io=False,
+def append_to_xlsx(csv_input_file, xlsx_output_file, sheet_title=None, separator=",", overwrite=False, use_io=False,
 				   toFloats=False):
-	# Setup for reading strings with thousand seperators as floats
-	# From https://stackoverflow.com/a/31074271
+	"""
+	Add CSV file to XLSX file as a new worksheet
+	
+	
+	:param csv_input_file: filepath of CSV file to
+	:type csv_input_file: str
+	:param xlsx_output_file: filepath of XLSX file
+	:type xlsx_output_file: str
+	:param sheet_title: Title of sheet to append. Default is name of csv_input_file
+	:type sheet_title: str
+	:param separator: Separator for reading CSV file, default to comma
+	:type separator: str
+	:param overwrite: Whether to overwrite the XLSX output file (i.e. create a new file containing just the new sheet)
+	:type overwrite: bool
+	:param use_io: Whether to use the io module
+	:type use_io: bool
+	:param toFloats: Whether to read strings with thousand separators as floats
+	:type toFloats: bool
+	"""
+	
+	import os
+	import csv
 	import locale
+	
+	from openpyxl import Workbook, load_workbook
+	
+	# Setup for reading strings with thousand separators as floats
+	# From https://stackoverflow.com/a/31074271
 	locale.setlocale(locale.LC_ALL, "")
 	
-	from openpyxl import Workbook, load_workbook  # https://openpyxl.readthedocs.io/en/default/
-	import csv
+	if sheet_title is None:
+		sheet_title = os.path.splitext(os.path.basename(csv_input_file))[0]
 	
 	if overwrite:
 		wb = Workbook()
@@ -55,7 +80,7 @@ def append_to_xlsx(csv_input_file, xlsx_output_file, sheet_title, seperator=",",
 		f = io.open(csv_input_file, encoding='latin-1')
 	else:
 		f = open(csv_input_file)
-	reader = csv.reader(f, delimiter=seperator)
+	reader = csv.reader(f, delimiter=separator)
 	
 	import traceback
 	for row in reader:
@@ -79,6 +104,19 @@ def append_to_xlsx(csv_input_file, xlsx_output_file, sheet_title, seperator=",",
 
 
 def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=None):
+	"""
+	Format columns of an XLSX worksheet
+	
+	:param ws: The worksheet to format
+	:type ws: openpyxl.worksheet.worksheet.Worksheet
+	:param number_format_list: dictionary of number format strings for each column letter
+	:type number_format_list: dict
+	:param width_list: dictionary of widths for each column letter
+	:type width_list: dict
+	:param alignment_list: dictionary of alignments (left, right, center) for each column letter
+	:type alignment_list: dict
+	"""
+	
 	from openpyxl.styles import Alignment
 	from openpyxl.utils import get_column_letter
 	from domdf_python_tools import as_text
@@ -118,10 +156,22 @@ def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=No
 											   vertical="center",
 											   wrap_text=False)
 	
-	return
 
 
 def format_header(ws, alignment_list, start_row=1, end_row=1):
+	"""
+	Format the alignment of the header rows of a worksheet
+	
+	:param ws: The worksheet to format
+	:type ws: openpyxl.worksheet.worksheet.Worksheet
+	:param alignment_list: dictionary of alignments (left, right, center) for each column letter
+	:type alignment_list: dict
+	:param start_row: The row to start formatting on
+	:type start_row: int
+	:param end_row: The row to end formatting on
+	:type end_row: int
+	"""
+	
 	from openpyxl.styles import Alignment
 	for column in alignment_list:
 		# for row in ws.iter_rows("{0}{1}:{0}{2}".format(column, start_row, end_row)):
@@ -133,6 +183,23 @@ def format_header(ws, alignment_list, start_row=1, end_row=1):
 
 
 def make_column_property_list(inlist, outlist=None, offset_list=None, repeat=1, length=1):
+	"""
+	Generate property lists from integer values
+	
+	:param inlist: List of property values to add to the property list
+	:type inlist: list
+	:param outlist: Dictionary of properties for each column letter
+	:type outlist: dict
+	:param offset_list:
+	:type offset_list:
+	:param repeat:
+	:type repeat:
+	:param length:
+	:type length:
+	
+	:return:
+	"""
+	
 	from openpyxl.utils import get_column_letter
 	if not outlist:
 		outlist = {}
