@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
 	name="domdf_spreadsheet_tools",
-	version="0.1.0",
+	version="0.1.1",
     author='Dominic Davis-Foster',
 	author_email="dominic@davis-foster.co.uk",
 	py_modules=["domdf_spreadsheet_tools"],
