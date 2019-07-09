@@ -2,7 +2,7 @@
 Building from source
 *********************
 
-To build the domdf_spreadsheet_tools package from source using ``setuptools``, run the following command:
+To build the ``domdf_spreadsheet_tools`` package from source using ``setuptools``, run the following command:
 
 .. code-block:: bash
 
