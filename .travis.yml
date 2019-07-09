@@ -4,13 +4,12 @@ python:
 - '3.6'
 - '3.7'
 - "3.8-dev"
-#install:
-#- pip install -U coveralls pytest
+install:
+- pip install -U coveralls pytest
 script:
-#- coverage run --source=domdf_python_tools -m pytest
- - echo "skipping tests"
-#after_success:
-#- coveralls
+- coverage run --source=domdf_spreadsheet_tools -m pytest
+after_success:
+- coveralls
 deploy:
   provider: pypi
   user: "DomDF"
