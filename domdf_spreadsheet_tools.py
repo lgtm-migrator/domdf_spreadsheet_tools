@@ -4,7 +4,7 @@
 #  domdf_spreadsheet_tools.py
 """Tools for creating and formatting spreadsheets with Python and OpenPyXL"""
 #
-#  Copyright 2018 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Copyright 2018-2019 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU Lesser General Public License as published by
@@ -24,7 +24,7 @@
 #
 
 __author__ = "Dominic Davis-Foster"
-__copyright__ = "Copyright 2018 Dominic Davis-Foster"
+__copyright__ = "Copyright 2018-2019 Dominic Davis-Foster"
 
 __license__ = "LGPL"
 __version__ = "0.1.1"
@@ -196,7 +196,7 @@ def make_column_property_list(inlist, outlist=None, offset_list=None, repeat=1, 
 	:type repeat:
 	:param length:
 	:type length:
-	
+	TODO: Finish this docstring; check usage in GunShotMatch
 	:return:
 	"""
 	
