@@ -15,7 +15,7 @@ domdf_spreadsheet_tools
 .. image:: https://img.shields.io/pypi/pyversions/domdf_spreadsheet_tools.svg
     :target: https://pypi.org/project/domdf_spreadsheet_tools/
     :alt: PyPI - Python Version
-.. image:: https://coveralls.io/repos/github/domdfcoding/domdf_spreadsheet_tools/badge.svg?branch=master
+.. .. image:: https://coveralls.io/repos/github/domdfcoding/domdf_spreadsheet_tools/badge.svg?branch=master
     :target: https://coveralls.io/github/domdfcoding/domdf_spreadsheet_tools?branch=master
     :alt: Coverage
 
