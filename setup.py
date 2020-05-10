@@ -1,28 +1,28 @@
-from setuptools import setup
+#!/usr/bin/env python
+# This file is managed by `git_helper`. Don't edit it directly
+"""Setup script"""
 
-with open("README.rst", "r") as fh:
-	long_description = fh.read()
+from __pkginfo__ import *
+
+from setuptools import setup, find_packages
 
 setup(
-		name="domdf_spreadsheet_tools",
-		version="0.1.4",
-		author='Dominic Davis-Foster',
-		author_email="dominic@davis-foster.co.uk",
-		py_modules=["domdf_spreadsheet_tools"],
-		url="https://github.com/domdfcoding/domdf_spreadsheet_tools",
-		description='Tools for creating and formatting spreadsheets with Python and OpenPyXL',
+		author=author,
+		author_email=author_email,
+		classifiers=classifiers,
+		description=short_desc,
+		entry_points=entry_points,
+		extras_require=extras_require,
+		include_package_data=True,
+		install_requires=install_requires,
+		license=license,
 		long_description=long_description,
-		long_description_content_type="text/markdown",
-		classifiers=[
-				"Programming Language :: Python :: 3.6",
-				"Programming Language :: Python :: 3.7",
-				"Programming Language :: Python :: 3.8",
-				"License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
-				"Operating System :: OS Independent",
-				"Development Status :: 4 - Beta",
-				],
-		install_requires=[
-				"openpyxl >= 2.6.0",
-				"domdf_python_tools >= 0.1.5"
-				],
+		name=modname,
+		packages=find_packages(exclude=("tests", "doc-source")),
+		project_urls=project_urls,
+		py_modules=py_modules,
+		python_requires=">=3.6",
+		url=web,
+		version=VERSION,
+
 		)
