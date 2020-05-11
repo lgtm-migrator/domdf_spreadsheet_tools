@@ -51,7 +51,7 @@ conda_description = """Tools for creating and formatting spreadsheets with Pytho
 
 Before installing please ensure you have added the "conda-forge" channel. """
 install_requires = (repo_root / "requirements.txt").read_text().split('\n')
-extras_require = {}
+extras_require = {'all': []}
 
 classifiers = [
 		'Programming Language :: Python :: 3.6',
@@ -62,3 +62,5 @@ classifiers = [
 		'Development Status :: 4 - Beta',
 		
 		]
+
+keywords = ""

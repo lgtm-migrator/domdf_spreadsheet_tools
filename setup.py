@@ -24,5 +24,6 @@ setup(
 		python_requires=">=3.6",
 		url=web,
 		version=VERSION,
+		keywords=keywords,
 
 		)
