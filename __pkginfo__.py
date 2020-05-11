@@ -49,7 +49,7 @@ long_description = (repo_root / "README.rst").read_text() + '\n'
 conda_description = """Tools for creating and formatting spreadsheets with Python and OpenPyXL
 
 
-Before installing please ensure you have added the "conda-forge" channel. """
+Before installing please ensure you have added the following channels: domdfcoding, conda-forge"""
 install_requires = (repo_root / "requirements.txt").read_text().split('\n')
 extras_require = {'all': []}
 

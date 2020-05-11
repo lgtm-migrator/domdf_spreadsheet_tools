@@ -29,12 +29,7 @@ travis_pypi_secure: "UrEhUVL+wymxE48XesC6utHtlLMNoLStOMQS7c/z/7+HzSMoBWjBb6HzrJw
 
 py_modules: ["domdf_spreadsheet_tools"]
 
-conda_description: "Tools for creating and formatting spreadsheets with Python and OpenPyXL
-
-
-
-Before installing please ensure you have added the \"conda-forge\" channel.
-"
+conda_description: "Tools for creating and formatting spreadsheets with Python and OpenPyXL"
 
 classifiers:
   - "Programming Language :: Python :: 3.6"
