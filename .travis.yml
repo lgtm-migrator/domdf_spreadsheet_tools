@@ -19,6 +19,7 @@ install:
 script:
   - echo "skipping tests"
 after_success:
+  - chmod +x .ci/travis_build_conda.sh
   - .ci/travis_build_conda.sh || travis_terminate 1;
 deploy:
   provider: pypi
@@ -31,4 +32,5 @@ deploy:
   distributions: "sdist bdist_wheel"
   skip_existing: true
 after_deploy:
+  - chmod +x .ci/travis_deploy_conda.sh
   - .ci/travis_deploy_conda.sh || travis_terminate 1;
