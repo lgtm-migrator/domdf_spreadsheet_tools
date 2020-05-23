@@ -27,8 +27,9 @@ author = "Dominic Davis-Foster"
 project = "domdf_spreadsheet_tools"
 slug = re.sub(r'\W+', '-', project.lower())
 release = version = __version__
-copyright = "Copyright 2018-2020 Dominic Davis-Foster"
+copyright = "2018-2020 Dominic Davis-Foster"
 language = 'en'
+package_root = "domdf_spreadsheet_tools"
 
 extensions = [
 		'sphinx.ext.intersphinx',
@@ -36,8 +37,15 @@ extensions = [
 		'sphinx.ext.mathjax',
 		'sphinx.ext.viewcode',
 		'sphinxcontrib.httpdomain',
+		"sphinxcontrib.extras_require",
+		"sphinx.ext.todo",
+		"sphinxemoji.sphinxemoji",
+		"sphinx_autodoc_typehints",
 
 		]
+
+sphinxemoji_style = 'twemoji'
+todo_include_todos = bool(os.environ.get("SHOW_TODOS", False))
 
 templates_path = ['_templates']
 html_static_path = ['_static']
