@@ -37,7 +37,6 @@ from openpyxl.styles import Alignment
 
 from domdf_python_tools.utils import as_text
 
-
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "Copyright 2018-2019 Dominic Davis-Foster"
 
@@ -47,9 +46,14 @@ __email__ = "dominic@davis-foster.co.uk"
 
 
 def append_to_xlsx(
-		csv_input_file, xlsx_output_file, sheet_title=None, separator=",",
-		overwrite=False, use_io=False, toFloats=False
-):
+		csv_input_file,
+		xlsx_output_file,
+		sheet_title=None,
+		separator=",",
+		overwrite=False,
+		use_io=False,
+		toFloats=False
+		):
 	"""
 	Add CSV file to xlsx file as a new worksheet
 	
@@ -68,30 +72,30 @@ def append_to_xlsx(
 	:param toFloats: Whether to read strings with thousand separators as floats
 	:type toFloats: bool
 	"""
-	
+
 	# Setup for reading strings with thousand separators as floats
 	# From https://stackoverflow.com/a/31074271
 	locale.setlocale(locale.LC_ALL, "")
-	
+
 	if sheet_title is None:
 		sheet_title = os.path.splitext(os.path.basename(csv_input_file))[0]
-	
+
 	if overwrite:
 		wb = Workbook()
 		ws = wb.active
 		wb.remove_sheet(ws)
 	else:
 		wb = load_workbook(xlsx_output_file)
-	
+
 	wb.create_sheet(sheet_title)
 	ws = wb[sheet_title]
-	
+
 	if use_io:
 		f = io.open(csv_input_file, encoding='latin-1')
 	else:
 		f = open(csv_input_file)
 	reader = csv.reader(f, delimiter=separator)
-	
+
 	for row in reader:
 		try:
 			if toFloats:
@@ -108,7 +112,7 @@ def append_to_xlsx(
 			traceback.print_exc()  # print the error
 			print(row)
 	f.close()
-	
+
 	wb.save(xlsx_output_file)
 
 
@@ -125,44 +129,40 @@ def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=No
 	:param alignment_list: dictionary of alignments (left, right, center) for each column letter
 	:type alignment_list: dict
 	"""
-	
+
 	# for row in ws.iter_rows("A1:{}{}".format(get_column_letter(ws.max_column), ws.max_row)):
 	for row in ws["A1:{}{}".format(get_column_letter(ws.max_column), ws.max_row)]:
 		for cell in row:
 			cell.alignment = Alignment(vertical="center", wrap_text=False)
-	
+
 	if number_format_list:
 		for column in number_format_list:
 			# for row in ws.iter_rows('{0}{1}:{0}{2}'.format(column, 3, ws.max_row)):
 			for row in ws['{0}{1}:{0}{2}'.format(column, 3, ws.max_row)]:
 				for cell in row:
 					cell.number_format = number_format_list[column]
-	
+
 	for column_cells in ws.columns:
 		length = max(len(as_text(cell.value)) for cell in column_cells)
 		if length < 1.0:
 			length = 1.0
 		ws.column_dimensions[get_column_letter(column_cells[0].column)].width = length
 	# ws.column_dimensions[column_cells[0].column].bestFit = True
-	
+
 	if width_list:
 		for column in width_list:
 			if width_list[column] == 0:
 				ws.column_dimensions[column].hidden = True
 			else:
 				ws.column_dimensions[column].width = width_list[column]
-	
+
 	if alignment_list:
 		for column in alignment_list:
 			# for row in ws.iter_rows("{0}{1}:{0}{2}".format(column, ws.min_row, ws.max_row)):
 			for row in ws["{0}{1}:{0}{2}".format(column, ws.min_row, ws.max_row)]:
 				for cell in row:
-					cell.alignment = Alignment(
-						horizontal=alignment_list[column],
-						vertical="center",
-						wrap_text=False
-					)
-	
+					cell.alignment = Alignment(horizontal=alignment_list[column], vertical="center", wrap_text=False)
+
 
 def format_header(ws, alignment_list, start_row=1, end_row=1):
 	"""
@@ -177,16 +177,12 @@ def format_header(ws, alignment_list, start_row=1, end_row=1):
 	:param end_row: The row to end formatting on
 	:type end_row: int
 	"""
-	
+
 	for column in alignment_list:
 		# for row in ws.iter_rows("{0}{1}:{0}{2}".format(column, start_row, end_row)):
-		for row in ws["{0}{1}:{0}{2}".format(column, start_row, end_row)]:
+		for row in ws[f"{column}{start_row}:{column}{end_row}"]:
 			for cell in row:
-				cell.alignment = Alignment(
-					horizontal=alignment_list[column],
-					vertical="center",
-					wrap_text=False
-				)
+				cell.alignment = Alignment(horizontal=alignment_list[column], vertical="center", wrap_text=False)
 
 
 def make_column_property_dict(indict, outdict=None, offset_dict=None, repeat=1, length=1):
@@ -203,8 +199,10 @@ def make_column_property_dict(indict, outdict=None, offset_dict=None, repeat=1, 
 	:type repeat:
 	:param length:
 	:type length:
+
 	TODO: Finish this docstring; check usage in GunShotMatch
 	:return:
+	:rtype:
 	"""
 
 	if not outdict:
@@ -212,10 +210,10 @@ def make_column_property_dict(indict, outdict=None, offset_dict=None, repeat=1, 
 	for index in indict:
 		for offset in range(repeat):
 			outdict[get_column_letter(int(index) + (length * offset))] = indict[index]
-	
+
 	if offset_dict:
 		offset = repeat * length
 		for index in offset_dict:
 			outdict[get_column_letter(int(index) + offset)] = offset_dict[index]
-	
+
 	return outdict
