@@ -163,7 +163,9 @@ def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=No
 			# for row in ws.iter_rows("{0}{1}:{0}{2}".format(column, ws.min_row, ws.max_row)):
 			for row in ws["{0}{1}:{0}{2}".format(column, ws.min_row, ws.max_row)]:
 				for cell in row:
-					cell.alignment = Alignment(horizontal=alignment_list[column], vertical="center", wrap_text=False)
+					cell.alignment = Alignment(
+							horizontal=alignment_list[column], vertical="center", wrap_text=False
+							)
 
 
 def format_header(ws, alignment_list, start_row=1, end_row=1):
