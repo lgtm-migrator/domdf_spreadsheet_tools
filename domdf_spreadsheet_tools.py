@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 #
 #  domdf_spreadsheet_tools.py
-"""Tools for creating and formatting spreadsheets with Python and OpenPyXL"""
+"""
+Tools for creating and formatting spreadsheets with Python and OpenPyXL
+"""
 #
 #  Copyright 2018-2019 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 #
@@ -56,7 +58,7 @@ def append_to_xlsx(
 		):
 	"""
 	Add CSV file to xlsx file as a new worksheet
-	
+
 	:param csv_input_file: filepath of CSV file to
 	:type csv_input_file: str
 	:param xlsx_output_file: filepath of xlsx file
@@ -119,7 +121,7 @@ def append_to_xlsx(
 def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=None):
 	"""
 	Format columns of an xlsx worksheet
-	
+
 	:param ws: The worksheet to format
 	:type ws: :class:`openpyxl.worksheet.worksheet.Worksheet`
 	:param number_format_list: dictionary of number format strings for each column letter
@@ -167,7 +169,7 @@ def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=No
 def format_header(ws, alignment_list, start_row=1, end_row=1):
 	"""
 	Format the alignment of the header rows of a worksheet
-	
+
 	:param ws: The worksheet to format
 	:type ws: :class:`openpyxl.worksheet.worksheet.Worksheet`
 	:param alignment_list: dictionary of alignments (left, right, center) for each column letter
@@ -188,7 +190,7 @@ def format_header(ws, alignment_list, start_row=1, end_row=1):
 def make_column_property_dict(indict, outdict=None, offset_dict=None, repeat=1, length=1):
 	"""
 	Generate property lists from integer values
-	
+
 	:param indict: Property values to add to the property dict
 	:type indict: dict
 	:param outdict: Dictionary of properties for each column letter
