@@ -67,7 +67,7 @@ domdf_spreadsheet_tools
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/domdf_spreadsheet_tools
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/domdf_spreadsheet_tools/v0.1.4
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/domdf_spreadsheet_tools/v0.1.5
 	:target: https://github.com/domdfcoding/domdf_spreadsheet_tools/pulse
 	:alt: GitHub commits since tagged version
 

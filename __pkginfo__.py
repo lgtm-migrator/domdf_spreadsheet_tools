@@ -46,7 +46,7 @@ __copyright__ = """
 2018-2020 Dominic Davis-Foster <dominic@davis-foster.co.uk>
 """
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 
 modname = "domdf_spreadsheet_tools"
 pypi_name = "domdf_spreadsheet_tools"
@@ -73,7 +73,7 @@ project_urls = {
 repo_root = pathlib.Path(__file__).parent
 
 # Get info from files; set: long_description
-long_description = (repo_root / "README.rst").read_text().replace("0.1.4", __version__) + '\n'
+long_description = (repo_root / "README.rst").read_text().replace("0.1.5", __version__) + '\n'
 conda_description = """Tools for creating and formatting spreadsheets with Python and OpenPyXL
 
 
