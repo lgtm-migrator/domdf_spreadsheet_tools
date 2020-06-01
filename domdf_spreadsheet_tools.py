@@ -26,18 +26,17 @@ Tools for creating and formatting spreadsheets with Python and OpenPyXL
 #
 
 # stdlib
-import os
-import io
 import csv
+import io
 import locale
+import os
 import traceback
 
 # 3rd party
-from openpyxl import Workbook, load_workbook
-from openpyxl.utils import get_column_letter
-from openpyxl.styles import Alignment
-
 from domdf_python_tools.utils import as_text
+from openpyxl import Workbook, load_workbook
+from openpyxl.styles import Alignment
+from openpyxl.utils import get_column_letter
 
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "Copyright 2018-2019 Dominic Davis-Foster"
