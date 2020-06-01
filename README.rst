@@ -4,7 +4,7 @@ domdf_spreadsheet_tools
 
 .. start short_desc
 
-**Tools for creating and formatting spreadsheets with Python and OpenPyXL**
+**Tools for creating and formatting spreadsheets with Python and OpenPyXL.**
 
 .. end short_desc
 .. start shields 

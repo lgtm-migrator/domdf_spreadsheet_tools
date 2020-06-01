@@ -30,13 +30,16 @@ import csv
 import io
 import locale
 import os
+import pathlib
 import traceback
+from typing import Dict, List, Optional, Union
 
 # 3rd party
-from domdf_python_tools.utils import as_text
-from openpyxl import Workbook, load_workbook
-from openpyxl.styles import Alignment
-from openpyxl.utils import get_column_letter
+from domdf_python_tools.utils import as_text  # type: ignore # TODO: remove ignore once type hints exist
+from openpyxl import Workbook, load_workbook  # type: ignore
+from openpyxl.styles import Alignment  # type: ignore
+from openpyxl.utils import get_column_letter  # type: ignore
+from openpyxl.worksheet.worksheet import Worksheet  # type: ignore
 
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "Copyright 2018-2019 Dominic Davis-Foster"
@@ -47,31 +50,32 @@ __email__ = "dominic@davis-foster.co.uk"
 
 
 def append_to_xlsx(
-		csv_input_file,
-		xlsx_output_file,
-		sheet_title=None,
-		separator=",",
-		overwrite=False,
-		use_io=False,
-		toFloats=False
-		):
+		csv_input_file: Union[str, pathlib.Path, os.PathLike],
+		xlsx_output_file: Union[str, pathlib.Path, os.PathLike],
+		sheet_title: str = None,
+		separator: str = ",",
+		overwrite: bool = False,
+		use_io: bool = False,
+		toFloats: bool = False,
+		) -> None:
 	"""
 	Add CSV file to xlsx file as a new worksheet
 
 	:param csv_input_file: filepath of CSV file to
-	:type csv_input_file: str
+	:type csv_input_file: str or pathlib.Path or os.PathLike
 	:param xlsx_output_file: filepath of xlsx file
-	:type xlsx_output_file: str
-	:param sheet_title: Title of sheet to append. Default is name of csv_input_file
-	:type sheet_title: str
-	:param separator: Separator for reading CSV file, default to comma
-	:type separator: str
-	:param overwrite: Whether to overwrite the xlsx output file (i.e. create a new file containing just the new sheet)
-	:type overwrite: bool
-	:param use_io: Whether to use the io module
-	:type use_io: bool
-	:param toFloats: Whether to read strings with thousand separators as floats
-	:type toFloats: bool
+	:type xlsx_output_file: str or pathlib.Path or os.PathLike
+	:param sheet_title: Title of sheet to append. Default is the value of ``csv_input_file``
+	:type sheet_title: str, optional
+	:param separator: Separator for reading CSV file. Default ``,``
+	:type separator: str, optional
+	:param overwrite: Whether to overwrite the xlsx output file (i.e. create a new file containing
+		just the new sheet). Default ``False``
+	:type overwrite: bool, optional
+	:param use_io: Whether to use the io module. Default ``False``
+	:type use_io: bool, optional
+	:param toFloats: Whether to read strings with thousand separators as floats. Default ``False``
+	:type toFloats: bool, optional
 	"""
 
 	# Setup for reading strings with thousand separators as floats
@@ -100,7 +104,7 @@ def append_to_xlsx(
 	for row in reader:
 		try:
 			if toFloats:
-				row_buffer = []
+				row_buffer: List[Union[str, float]] = []
 				for cell in row:
 					try:
 						row_buffer.append(locale.atof(cell))
@@ -117,36 +121,38 @@ def append_to_xlsx(
 	wb.save(xlsx_output_file)
 
 
-def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=None):
+def format_sheet(
+		ws: Worksheet,
+		number_format_list: Optional[Dict[str, str]] = None,
+		width_list: Optional[Dict[str, float]] = None,
+		alignment_list: Optional[Dict[str, str]] = None,
+		):
 	"""
 	Format columns of an xlsx worksheet
 
 	:param ws: The worksheet to format
-	:type ws: :class:`openpyxl.worksheet.worksheet.Worksheet`
+	:type ws: openpyxl.worksheet.worksheet.Worksheet
 	:param number_format_list: dictionary of number format strings for each column letter
-	:type number_format_list: dict
 	:param width_list: dictionary of widths for each column letter
-	:type width_list: dict
-	:param alignment_list: dictionary of alignments (left, right, center) for each column letter
-	:type alignment_list: dict
+	:param alignment_list: dictionary of alignments (``left``, ``right``, or ``center``) for each column letter
 	"""
 
 	# for row in ws.iter_rows("A1:{}{}".format(get_column_letter(ws.max_column), ws.max_row)):
-	for row in ws["A1:{}{}".format(get_column_letter(ws.max_column), ws.max_row)]:
+	for row in ws[f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"]:
 		for cell in row:
 			cell.alignment = Alignment(vertical="center", wrap_text=False)
 
 	if number_format_list:
 		for column in number_format_list:
 			# for row in ws.iter_rows('{0}{1}:{0}{2}'.format(column, 3, ws.max_row)):
-			for row in ws['{0}{1}:{0}{2}'.format(column, 3, ws.max_row)]:
+			for row in ws[f'{column}{3}:{column}{ws.max_row}']:
 				for cell in row:
 					cell.number_format = number_format_list[column]
 
 	for column_cells in ws.columns:
 		length = max(len(as_text(cell.value)) for cell in column_cells)
-		if length < 1.0:
-			length = 1.0
+		if length < 1:
+			length = 1
 		ws.column_dimensions[get_column_letter(column_cells[0].column)].width = length
 	# ws.column_dimensions[column_cells[0].column].bestFit = True
 
@@ -160,25 +166,31 @@ def format_sheet(ws, number_format_list=None, width_list=None, alignment_list=No
 	if alignment_list:
 		for column in alignment_list:
 			# for row in ws.iter_rows("{0}{1}:{0}{2}".format(column, ws.min_row, ws.max_row)):
-			for row in ws["{0}{1}:{0}{2}".format(column, ws.min_row, ws.max_row)]:
+			for row in ws[f"{column}{ws.min_row}:{column}{ws.max_row}"]:
 				for cell in row:
 					cell.alignment = Alignment(
-							horizontal=alignment_list[column], vertical="center", wrap_text=False
+							horizontal=alignment_list[column],
+							vertical="center",
+							wrap_text=False,
 							)
 
 
-def format_header(ws, alignment_list, start_row=1, end_row=1):
+def format_header(
+		ws: Worksheet,
+		alignment_list: Dict[str, str],
+		start_row: int = 1,
+		end_row: int = 1,
+		):
 	"""
 	Format the alignment of the header rows of a worksheet
 
 	:param ws: The worksheet to format
-	:type ws: :class:`openpyxl.worksheet.worksheet.Worksheet`
+	:type ws: openpyxl.worksheet.worksheet.Worksheet
 	:param alignment_list: dictionary of alignments (left, right, center) for each column letter
-	:type alignment_list: dict
-	:param start_row: The row to start formatting on
-	:type start_row: int
-	:param end_row: The row to end formatting on
-	:type end_row: int
+	:param start_row: The row to start formatting on. Default ``1``
+	:type start_row: int, optional
+	:param end_row: The row to end formatting on. Default ``1``
+	:type end_row: int, optional
 	"""
 
 	for column in alignment_list:
@@ -198,12 +210,13 @@ def make_column_property_dict(indict, outdict=None, offset_dict=None, repeat=1, 
 	:type outdict: dict
 	:param offset_dict:
 	:type offset_dict:
-	:param repeat:
-	:type repeat:
-	:param length:
-	:type length:
+	:param repeat: Default ``1``
+	:type repeat: int, optional
+	:param length: Default ``1``
+	:type length: int, optional
 
 	TODO: Finish this docstring; check usage in GunShotMatch
+
 	:return:
 	:rtype:
 	"""
