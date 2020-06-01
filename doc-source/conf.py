@@ -27,7 +27,7 @@ author = "Dominic Davis-Foster"
 project = "domdf_spreadsheet_tools"
 slug = re.sub(r'\W+', '-', project.lower())
 release = version = __version__
-copyright = "2018-2020 Dominic Davis-Foster"
+copyright = "2018-2020 Dominic Davis-Foster"  # pylint: disable=redefined-builtin
 language = 'en'
 package_root = "domdf_spreadsheet_tools"
 
@@ -43,6 +43,7 @@ extensions = [
 		"notfound.extension",
 		"sphinx_tabs.tabs",
 		"sphinx-prompt",
+		"sphinx_autodoc_typehints",
 		]
 
 sphinxemoji_style = 'twemoji'
