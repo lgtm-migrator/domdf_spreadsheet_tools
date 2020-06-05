@@ -47,7 +47,7 @@ __version__ = "0.1.6"
 modname = "domdf_spreadsheet_tools"
 pypi_name = "domdf_spreadsheet_tools"
 import_name = "domdf_spreadsheet_tools"
-py_modules = ['domdf_spreadsheet_tools']
+py_modules = []
 entry_points = {
 		"console_scripts": []
 		}

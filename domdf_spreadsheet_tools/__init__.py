@@ -200,7 +200,7 @@ def format_header(
 				cell.alignment = Alignment(horizontal=alignment_list[column], vertical="center", wrap_text=False)
 
 
-def make_column_property_dict(indict, outdict=None, offset_dict=None, repeat=1, length=1):
+def make_column_property_dict(indict, outdict: Optional[Dict] = None, offset_dict: Optional[Dict] = None, repeat: int = 1, length: int = 1,):
 	"""
 	Generate property lists from integer values
 

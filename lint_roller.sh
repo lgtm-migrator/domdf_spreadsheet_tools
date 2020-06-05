@@ -15,13 +15,13 @@ if [ -z "$(git status --porcelain --untracked-files=no)" ] || [ "$1" == "-f" ]; 
 
   echo "Running autopep8"
 
-  autopep8 --in-place --select "$errors" -a domdf_spreadsheet_tools.py
-  autopep8 --in-place --select "$belligerent" -a -a -a domdf_spreadsheet_tools.py
+  autopep8 --in-place --select "$errors" -a --recursive domdf_spreadsheet_tools/
+  autopep8 --in-place --select "$belligerent" -a -a -a -a -a --recursive domdf_spreadsheet_tools/
 
 
   echo "Running flake8"
 
-    >&2 flake8 domdf_spreadsheet_tools.py
+    >&2 flake8 domdf_spreadsheet_tools/
 
     >&2 flake8 tests/
 
