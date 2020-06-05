@@ -35,7 +35,7 @@ import traceback
 from typing import Dict, List, Optional, Union
 
 # 3rd party
-from domdf_python_tools.utils import as_text  # type: ignore # TODO: remove ignore once type hints exist
+from domdf_python_tools.utils import as_text
 from openpyxl import Workbook, load_workbook  # type: ignore
 from openpyxl.styles import Alignment  # type: ignore
 from openpyxl.utils import get_column_letter  # type: ignore
