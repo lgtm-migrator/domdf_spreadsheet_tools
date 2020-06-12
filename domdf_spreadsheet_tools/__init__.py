@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 #
 #  domdf_spreadsheet_tools.py
 """
@@ -27,7 +26,6 @@ Tools for creating and formatting spreadsheets with Python and OpenPyXL
 
 # stdlib
 import csv
-import io
 import locale
 import os
 import pathlib
@@ -42,7 +40,7 @@ from openpyxl.utils import get_column_letter  # type: ignore
 from openpyxl.worksheet.worksheet import Worksheet  # type: ignore
 
 __author__ = "Dominic Davis-Foster"
-__copyright__ = "Copyright 2018-2019 Dominic Davis-Foster"
+__copyright__ = "Copyright 2018-2020 Dominic Davis-Foster"
 
 __license__ = "LGPL"
 __version__ = "0.1.6"
@@ -96,7 +94,7 @@ def append_to_xlsx(
 	ws = wb[sheet_title]
 
 	if use_io:
-		f = io.open(csv_input_file, encoding='latin-1')
+		f = open(csv_input_file, encoding='latin-1')
 	else:
 		f = open(csv_input_file)
 	reader = csv.reader(f, delimiter=separator)
@@ -200,7 +198,13 @@ def format_header(
 				cell.alignment = Alignment(horizontal=alignment_list[column], vertical="center", wrap_text=False)
 
 
-def make_column_property_dict(indict, outdict: Optional[Dict] = None, offset_dict: Optional[Dict] = None, repeat: int = 1, length: int = 1,):
+def make_column_property_dict(
+		indict,
+		outdict: Optional[Dict] = None,
+		offset_dict: Optional[Dict] = None,
+		repeat: int = 1,
+		length: int = 1,
+		):
 	"""
 	Generate property lists from integer values
 

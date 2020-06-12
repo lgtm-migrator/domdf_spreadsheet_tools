@@ -24,7 +24,7 @@ domdf_spreadsheet_tools
 	* - Other
 	  - |license| |language| |commits-since| |commits-latest| |maintained| 
 
-.. |docs| image:: https://readthedocs.org/projects/domdf_spreadsheet_tools/badge/?version=latest
+.. |docs| image:: https://img.shields.io/readthedocs/domdf_spreadsheet_tools/latest?logo=read-the-docs
 	:target: https://domdf_spreadsheet_tools.readthedocs.io/en/latest/?badge=latest
 	:alt: Documentation Status
 
@@ -36,15 +36,15 @@ domdf_spreadsheet_tools
 	:target: https://requires.io/github/domdfcoding/domdf_spreadsheet_tools/requirements/?branch=master
 	:alt: Requirements Status
 
-.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/domdf_spreadsheet_tools
+.. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/domdf_spreadsheet_tools?logo=codefactor
 	:target: https://www.codefactor.io/repository/github/domdfcoding/domdf_spreadsheet_tools
 	:alt: CodeFactor Grade
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/domdf_spreadsheet_tools.svg
+.. |pypi-version| image:: https://img.shields.io/pypi/v/domdf_spreadsheet_tools
 	:target: https://pypi.org/project/domdf_spreadsheet_tools/
 	:alt: PyPI - Package Version
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/domdf_spreadsheet_tools.svg
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/domdf_spreadsheet_tools
 	:target: https://pypi.org/project/domdf_spreadsheet_tools/
 	:alt: PyPI - Supported Python Versions
 
@@ -56,7 +56,7 @@ domdf_spreadsheet_tools
 	:target: https://pypi.org/project/domdf_spreadsheet_tools/
 	:alt: PyPI - Wheel
 
-.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/domdf_spreadsheet_tools
+.. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/domdf_spreadsheet_tools?logo=anaconda
 	:alt: Conda - Package Version
 	:target: https://anaconda.org/domdfcoding/domdf_spreadsheet_tools
 
