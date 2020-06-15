@@ -54,7 +54,7 @@ entry_points = {
 
 __license__ = "GNU Lesser General Public License v3 or later (LGPLv3+)"
 
-short_desc = "Tools for creating and formatting spreadsheets with Python and OpenPyXL."
+short_desc = "Tools for creating and formatting spreadsheets with Python and OpenPyXL 🛠"
 
 __author__ = author = "Dominic Davis-Foster"
 author_email = "dominic@davis-foster.co.uk"
