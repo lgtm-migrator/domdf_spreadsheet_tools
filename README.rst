@@ -16,13 +16,16 @@ domdf_spreadsheet_tools
 	* - Docs
 	  - |docs|
 	* - Tests
-	  - |travis| |requires| |codefactor|
+	  - |travis| |actions_windows| |actions_macos|
+	    |codefactor|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
 	* - Anaconda
 	  - |conda-version| |conda-platform|
+	* - Activity
+	  - |commits-latest| |commits-since| |maintained|
 	* - Other
-	  - |license| |language| |commits-since| |commits-latest| |maintained| 
+	  - |license| |language| |requires|
 
 .. |docs| image:: https://img.shields.io/readthedocs/domdf_spreadsheet_tools/latest?logo=read-the-docs
 	:target: https://domdf_spreadsheet_tools.readthedocs.io/en/latest/?badge=latest
@@ -31,6 +34,14 @@ domdf_spreadsheet_tools
 .. |travis| image:: https://img.shields.io/travis/com/domdfcoding/domdf_spreadsheet_tools/master?logo=travis
 	:target: https://travis-ci.com/domdfcoding/domdf_spreadsheet_tools
 	:alt: Travis Build Status
+
+.. |actions_windows| image:: https://github.com/domdfcoding/domdf_spreadsheet_tools/workflows/Windows%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/domdf_spreadsheet_tools/actions?query=workflow%3A%22Windows+Tests%22
+	:alt: Windows Tests Status
+	
+.. |actions_macos| image:: https://github.com/domdfcoding/domdf_spreadsheet_tools/workflows/macOS%20Tests/badge.svg
+	:target: https://github.com/domdfcoding/domdf_spreadsheet_tools/actions?query=workflow%3A%22macOS+Tests%22
+	:alt: macOS Tests Status
 
 .. |requires| image:: https://requires.io/github/domdfcoding/domdf_spreadsheet_tools/requirements.svg?branch=master
 	:target: https://requires.io/github/domdfcoding/domdf_spreadsheet_tools/requirements/?branch=master
