@@ -95,4 +95,4 @@ classifiers = [
 
 		]
 
-keywords = ""
+keywords = "utilities openpyxl excel spreadsheets"

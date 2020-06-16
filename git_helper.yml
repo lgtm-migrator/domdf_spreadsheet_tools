@@ -37,3 +37,8 @@ classifiers:
   - "Operating System :: OS Independent"
   - "Development Status :: 4 - Beta"
 
+keywords:
+  - utilities
+  - openpyxl
+  - excel
+  - spreadsheets
