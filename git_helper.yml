@@ -5,7 +5,7 @@ email: "dominic@davis-foster.co.uk"
 version: "0.1.6"
 username: "domdfcoding"
 license: 'LGPLv3+'
-short_desc: 'Tools for creating and formatting spreadsheets with Python and OpenPyXL 🛠'
+short_desc: 'Tools for creating and formatting spreadsheets with Python and OpenPyXL 🐍 🛠️'
 
 enable_tests: False
 
