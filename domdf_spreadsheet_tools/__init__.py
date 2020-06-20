@@ -51,7 +51,7 @@ def append_to_xlsx(
 		csv_input_file: Union[str, pathlib.Path, os.PathLike],
 		xlsx_output_file: Union[str, pathlib.Path, os.PathLike],
 		sheet_title: str = None,
-		separator: str = ",",
+		separator: str = ',',
 		overwrite: bool = False,
 		use_io: bool = False,
 		toFloats: bool = False,
@@ -78,7 +78,7 @@ def append_to_xlsx(
 
 	# Setup for reading strings with thousand separators as floats
 	# From https://stackoverflow.com/a/31074271
-	locale.setlocale(locale.LC_ALL, "")
+	locale.setlocale(locale.LC_ALL, '')
 
 	if sheet_title is None:
 		sheet_title = os.path.splitext(os.path.basename(csv_input_file))[0]
@@ -94,7 +94,7 @@ def append_to_xlsx(
 	ws = wb[sheet_title]
 
 	if use_io:
-		f = open(csv_input_file, encoding='latin-1')
+		f = open(csv_input_file, encoding="latin-1")
 	else:
 		f = open(csv_input_file)
 	reader = csv.reader(f, delimiter=separator)
@@ -143,7 +143,7 @@ def format_sheet(
 	if number_format_list:
 		for column in number_format_list:
 			# for row in ws.iter_rows('{0}{1}:{0}{2}'.format(column, 3, ws.max_row)):
-			for row in ws[f'{column}{3}:{column}{ws.max_row}']:
+			for row in ws[f"{column}{3}:{column}{ws.max_row}"]:
 				for cell in row:
 					cell.number_format = number_format_list[column]
 
