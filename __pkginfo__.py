@@ -81,17 +81,17 @@ install_requires = (repo_root / "requirements.txt").read_text(encoding="utf-8").
 extras_require = {'all': []}
 
 classifiers = [
+		'Development Status :: 4 - Beta',
+		'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+		'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
+		'Operating System :: OS Independent',
+		'Programming Language :: Python',
+		'Programming Language :: Python :: 3 :: Only',
 		'Programming Language :: Python :: 3.6',
 		'Programming Language :: Python :: 3.7',
 		'Programming Language :: Python :: 3.8',
-		'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
-		'Operating System :: OS Independent',
-		'Development Status :: 4 - Beta',
 		'Programming Language :: Python :: Implementation :: CPython',
 		'Programming Language :: Python :: Implementation :: PyPy',
-		'Programming Language :: Python',
-		'Programming Language :: Python :: 3 :: Only',
-		'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
 		'Typing :: Typed',
 
 		]
