@@ -7,7 +7,7 @@ domdf_spreadsheet_tools
 **Tools for creating and formatting spreadsheets with Python and OpenPyXL 🐍 🛠️**
 
 .. end short_desc
-.. start shields 
+.. start shields
 
 .. list-table::
 	:stub-columns: 1
@@ -29,7 +29,7 @@ domdf_spreadsheet_tools
 .. |docs| image:: https://img.shields.io/readthedocs/domdf_spreadsheet_tools/latest?logo=read-the-docs
 	:target: https://domdf_spreadsheet_tools.readthedocs.io/en/latest/?badge=latest
 	:alt: Documentation Status
-	
+
 .. |docs_check| image:: https://github.com/domdfcoding/domdf_spreadsheet_tools/workflows/Docs%20Check/badge.svg
 	:target: https://github.com/domdfcoding/domdf_spreadsheet_tools/actions?query=workflow%3A%22Docs+Check%22
 	:alt: Docs Check Status
@@ -58,7 +58,7 @@ domdf_spreadsheet_tools
 	:target: https://pypi.org/project/domdf_spreadsheet_tools/
 	:alt: PyPI - Package Version
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/domdf_spreadsheet_tools
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/domdf_spreadsheet_tools?logo=python&logoColor=white
 	:target: https://pypi.org/project/domdf_spreadsheet_tools/
 	:alt: PyPI - Supported Python Versions
 
@@ -71,16 +71,16 @@ domdf_spreadsheet_tools
 	:alt: PyPI - Wheel
 
 .. |conda-version| image:: https://img.shields.io/conda/v/domdfcoding/domdf_spreadsheet_tools?logo=anaconda
-	:alt: Conda - Package Version
 	:target: https://anaconda.org/domdfcoding/domdf_spreadsheet_tools
+	:alt: Conda - Package Version
 
 .. |conda-platform| image:: https://img.shields.io/conda/pn/domdfcoding/domdf_spreadsheet_tools?label=conda%7Cplatform
-	:alt: Conda - Platform
 	:target: https://anaconda.org/domdfcoding/domdf_spreadsheet_tools
+	:alt: Conda - Platform
 
 .. |license| image:: https://img.shields.io/github/license/domdfcoding/domdf_spreadsheet_tools
-	:alt: License
 	:target: https://github.com/domdfcoding/domdf_spreadsheet_tools/blob/master/LICENSE
+	:alt: License
 
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/domdf_spreadsheet_tools
 	:alt: GitHub top language
