@@ -15,7 +15,7 @@ from __pkginfo__ import *  # pylint: disable=wildcard-import
 
 
 setup(
-		description="Tools for creating and formatting spreadsheets with Python and OpenPyXL 🐍 🛠️",
+		description='Tools for creating and formatting spreadsheets with Python and OpenPyXL\u2002🐍\u2002🛠️',
 		extras_require=extras_require,
 		install_requires=install_requires,
 		py_modules=[],
