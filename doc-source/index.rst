@@ -117,13 +117,20 @@ Installation
 
 .. end installation
 
+
+.. toctree::
+	:hidden:
+
+	Home<self>
+	docs
+
 .. toctree::
 	:maxdepth: 3
-	:caption: Documentation
+	:caption: Contributing
 
-	docs
+	contributing
 	Source
-	Building
+
 
 .. start links
 
