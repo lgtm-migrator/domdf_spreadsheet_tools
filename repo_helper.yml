@@ -1,3 +1,4 @@
+---
 modname: domdf_spreadsheet_tools
 copyright_years: "2018-2020"
 author: "Dominic Davis-Foster"
@@ -7,20 +8,21 @@ username: "domdfcoding"
 license: 'LGPLv3+'
 short_desc: 'Tools for creating and formatting spreadsheets with Python and OpenPyXL 🐍 🛠️'
 
-enable_tests: False
+enable_tests: false
 
 conda_channels:
-  - domdfcoding
-  - conda-forge
+ - domdfcoding
+ - conda-forge
 
 python_deploy_version: 3.6
 
 # Versions to run tests for
 python_versions:
-  - '3.6'
-  - '3.7'
-  - "3.8"
-  - "pypy3"
+ - '3.6'
+ - '3.7'
+ - "3.8"
+ - "3.9"
+ - "pypy3"
 
 
 # travis secure password for PyPI
@@ -30,15 +32,12 @@ travis_pypi_secure: "UrEhUVL+wymxE48XesC6utHtlLMNoLStOMQS7c/z/7+HzSMoBWjBb6HzrJw
 conda_description: "Tools for creating and formatting spreadsheets with Python and OpenPyXL"
 
 classifiers:
-  - "Programming Language :: Python :: 3.6"
-  - "Programming Language :: Python :: 3.7"
-  - "Programming Language :: Python :: 3.8"
-  - "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)"
-  - "Operating System :: OS Independent"
-  - "Development Status :: 4 - Beta"
+ - "Development Status :: 4 - Beta"
+ - 'Intended Audience :: Developers'
+ - 'Topic :: Software Development :: Libraries :: Python Modules'
 
 keywords:
-  - utilities
-  - openpyxl
-  - excel
-  - spreadsheets
+ - utilities
+ - openpyxl
+ - excel
+ - spreadsheets
