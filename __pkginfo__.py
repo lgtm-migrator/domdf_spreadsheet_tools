@@ -17,22 +17,9 @@ import pathlib
 __all__ = [
 		"__copyright__",
 		"__version__",
-		"modname",
-		"pypi_name",
-		"__license__",
-		"__author__",
-		"short_desc",
-		"author",
-		"author_email",
-		"github_username",
-		"web",
-		"github_url",
 		"repo_root",
 		"install_requires",
 		"extras_require",
-		"project_urls",
-
-		"import_name",
 		]
 
 __copyright__ = """
@@ -40,30 +27,7 @@ __copyright__ = """
 """
 
 __version__ = "0.1.6"
-modname = "domdf_spreadsheet_tools"
-pypi_name = "domdf_spreadsheet_tools"
-import_name = "domdf_spreadsheet_tools"
-__license__ = "GNU Lesser General Public License v3 or later (LGPLv3+)"
-short_desc = 'Tools for creating and formatting spreadsheets with Python and OpenPyXL\u2002🐍\u2002🛠️'
-__author__ = author = 'Dominic Davis-Foster'
-author_email = 'dominic@davis-foster.co.uk'
-github_username = "domdfcoding"
-web = github_url = "https://github.com/domdfcoding/domdf_spreadsheet_tools"
+
 repo_root = pathlib.Path(__file__).parent
 install_requires = (repo_root / "requirements.txt").read_text(encoding="utf-8").split('\n')
 extras_require = {'all': []}
-
-
-
-conda_description = """Tools for creating and formatting spreadsheets with Python and OpenPyXL
-
-
-Before installing please ensure you have added the following channels: domdfcoding, conda-forge"""
-__all__.append("conda_description")
-
-
-project_urls = {
-		"Documentation": "https://domdf_spreadsheet_tools.readthedocs.io",
-		"Issue Tracker": f"{github_url}/issues",
-		"Source Code": github_url,
-		}
