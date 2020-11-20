@@ -39,10 +39,11 @@ from openpyxl.styles import Alignment  # type: ignore
 from openpyxl.utils import get_column_letter  # type: ignore
 from openpyxl.worksheet.worksheet import Worksheet  # type: ignore
 
+__all__ = ["append_to_xlsx", "format_header", "format_sheet", "make_column_property_dict"]
+
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "Copyright 2018-2020 Dominic Davis-Foster"
-
-__license__ = "LGPL"
+__license__ = "LGPLv3+"
 __version__ = "0.1.6"
 __email__ = "dominic@davis-foster.co.uk"
 
