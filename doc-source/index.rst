@@ -125,12 +125,12 @@ Installation
 	:hidden:
 
 	Home<self>
-	docs
 
 .. toctree::
 	:maxdepth: 3
-	:caption: Contributing
+	:caption: Documentation
 
+	docs
 	contributing
 	Source
 

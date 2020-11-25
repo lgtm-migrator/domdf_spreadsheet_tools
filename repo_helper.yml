@@ -40,3 +40,7 @@ keywords:
  - openpyxl
  - excel
  - spreadsheets
+
+sphinx_html_theme: furo
+standalone_contrib_guide: true
+preserve_custom_theme: true
