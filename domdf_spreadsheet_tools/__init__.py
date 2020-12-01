@@ -44,7 +44,7 @@ __license__ = "LGPLv3+"
 __version__ = "0.1.6"
 __email__ = "dominic@davis-foster.co.uk"
 
-__all__ = ["append_to_xlsx", "format_header", "format_sheet", "make_column_property_dict"]
+__all__ = ["append_to_xlsx", "format_header", "format_sheet", "make_column_property_dict", "col_width_from_cm"]
 
 
 def append_to_xlsx(
@@ -221,3 +221,21 @@ def make_column_property_dict(
 			outdict[get_column_letter(int(index) + offset)] = offset_dict[index]
 
 	return outdict
+
+
+def col_width_from_cm(width: float) -> float:
+	"""
+	Returns an estimate of the width of the column in pixels, given the size in centimeters.
+
+	:param width: The width in centimeters.
+
+	.. versionadded:: 0.2.0
+	"""
+
+	# https://docs.microsoft.com/en-us/office/trouleshoot/excel/determine-column-widths
+
+	# width in px / 38 = width in cm
+	# width in cm * 38 = width in px
+	# 10 = 75px ~= 1.97cm
+
+	return width / (1.97 / 10)
