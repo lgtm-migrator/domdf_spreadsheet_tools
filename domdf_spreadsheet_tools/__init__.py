@@ -53,8 +53,8 @@ def append_to_xlsx(
 		sheet_title: Optional[str] = None,
 		separator: str = ',',
 		overwrite: bool = False,
-		use_io: bool = False,
-		toFloats: bool = False,
+		to_floats: bool = False,
+		encoding: str = "UTF-8"
 		) -> None:
 	"""
 	Add CSV file to xlsx file as a new worksheet
@@ -66,8 +66,8 @@ def append_to_xlsx(
 	:param separator: Separator for reading CSV file.
 	:param overwrite: Whether to overwrite the xlsx output file
 		(i.e. create a new file containing just the new sheet).
-	:param use_io: Whether to use the io module.
-	:param toFloats: Whether to read strings with thousand separators as floats.
+	:param to_floats: Whether to read strings with thousand separators as floats.
+	:param encoding: The encoding to read the file as.
 	"""
 
 	# Setup for reading strings with thousand separators as floats
@@ -87,28 +87,24 @@ def append_to_xlsx(
 	wb.create_sheet(sheet_title)
 	ws = wb[sheet_title]
 
-	if use_io:
-		f = open(csv_input_file, encoding="latin-1")
-	else:
-		f = open(csv_input_file)
-	reader = csv.reader(f, delimiter=separator)
+	with open(csv_input_file, encoding=encoding) as f:
+		reader = csv.reader(f, delimiter=separator)
 
 	for row in reader:
 		try:
-			if toFloats:
+			if to_floats:
 				row_buffer: List[Union[str, float]] = []
 				for cell in row:
 					try:
 						row_buffer.append(locale.atof(cell))
-					except:
+					except BaseException:
 						row_buffer.append(cell)
 				ws.append(row_buffer)
 			else:
 				ws.append(row)
-		except:
+		except BaseException:
 			traceback.print_exc()  # print the error
 			print(row)
-	f.close()
 
 	wb.save(xlsx_output_file)
 
