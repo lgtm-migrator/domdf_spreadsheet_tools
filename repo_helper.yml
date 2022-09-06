@@ -10,6 +10,7 @@ short_desc: 'Tools for creating and formatting spreadsheets with Python and Open
 conda_description: "Tools for creating and formatting spreadsheets with Python and OpenPyXL."
 
 enable_tests: false
+use_whey: true
 
 conda_channels:
  - domdfcoding
