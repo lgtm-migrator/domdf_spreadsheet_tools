@@ -27,16 +27,15 @@ Tools for creating and formatting spreadsheets with Python and OpenPyXL.
 import csv
 import locale
 import os
-import pathlib
 import traceback
-from typing import Dict, List, Optional, Union
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 # 3rd party
 from domdf_python_tools.typing import PathLike
-from openpyxl import Workbook, load_workbook  # type: ignore
-from openpyxl.styles import Alignment  # type: ignore
-from openpyxl.utils import get_column_letter  # type: ignore
-from openpyxl.worksheet.worksheet import Worksheet  # type: ignore
+from openpyxl import Workbook, load_workbook  # type: ignore[import]
+from openpyxl.styles import Alignment  # type: ignore[import]
+from openpyxl.utils import get_column_letter  # type: ignore[import]
+from openpyxl.worksheet.worksheet import Worksheet  # type: ignore[import]
 
 __author__ = "Dominic Davis-Foster"
 __copyright__ = "Copyright 2018-2020 Dominic Davis-Foster"
@@ -114,7 +113,7 @@ def format_sheet(
 		number_format_list: Optional[Dict[str, str]] = None,
 		width_list: Optional[Dict[str, float]] = None,
 		alignment_list: Optional[Dict[str, str]] = None,
-		):
+		) -> None:
 	"""
 	Format columns of an xlsx worksheet.
 
@@ -168,7 +167,7 @@ def format_header(
 		alignment_list: Dict[str, str],
 		start_row: int = 1,
 		end_row: int = 1,
-		):
+		) -> None:
 	"""
 	Format the alignment of the header rows of a worksheet.
 
@@ -187,12 +186,12 @@ def format_header(
 
 
 def make_column_property_dict(
-		indict,
-		outdict: Optional[Dict] = None,
-		offset_dict: Optional[Dict] = None,
+		indict: Mapping,
+		outdict: Optional[Dict[str, Any]] = None,
+		offset_dict: Optional[Mapping] = None,
 		repeat: int = 1,
 		length: int = 1,
-		):
+		) -> Dict[str, Any]:
 	"""
 	Generate property lists from integer values.
 
@@ -205,8 +204,9 @@ def make_column_property_dict(
 	.. TODO:: Finish this docstring; check usage in GunShotMatch
 	"""
 
-	if not outdict:
+	if outdict is None:
 		outdict = {}
+
 	for index in indict:
 		for offset in range(repeat):
 			outdict[get_column_letter(int(index) + (length * offset))] = indict[index]
