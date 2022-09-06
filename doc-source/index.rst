@@ -141,12 +141,17 @@ Installation
 
 .. toctree::
 	:maxdepth: 3
-	:caption: Documentation
 
 	docs
 	contributing
+	license
 	Source
 
+
+.. sidebar-links::
+	:caption: Links
+	:github:
+	:pypi: domdf_spreadsheet_tools
 
 .. start links
 
