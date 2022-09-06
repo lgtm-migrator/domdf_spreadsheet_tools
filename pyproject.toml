@@ -42,6 +42,7 @@ Homepage = "https://github.com/domdfcoding/domdf_spreadsheet_tools"
 Documentation = "https://domdf_spreadsheet_tools.readthedocs.io/en/latest"
 
 [tool.importcheck]
+always = [ "domdf_spreadsheet_tools",]
 
 [tool.setuptools]
 zip-safe = false
